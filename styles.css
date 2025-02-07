@@ -1,0 +1,1033 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: rgb(8, 8, 8);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full height */
+}
+
+main {
+  flex: 1; /* Expands to push footer down */
+}
+
+.hero {
+  background: url('agriculture.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+  background: rgba(0, 128, 28, 0.5); /* Dark semi-transparent background */
+  color: white; /* Ensures text is white */
+  padding: 10px; /* Adds spacing */
+  display: inline-block; /* Ensures background only covers text */
+}
+
+/* Animation: Fade & Drop */
+.animate-drop {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: dropFade 5s ease-out forwards;
+}
+
+@keyframes dropFade {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1; /* Changed from 3 to 1 */
+    transform: translateY(0);
+  }
+}
+
+/* Navigation Bar */
+nav {
+  background: #2c5d35;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  padding: 4px 0; /* Reduce padding */
+  margin: 2px 0; /* Reduce margin */
+  font-size: 16px; /* Optional: Adjust font size */
+  line-height: 0.5;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: 5s;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: row; /* Default: Horizontal layout */
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Sections */
+.section {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  flex: 1; /* Ensures sections take up equal space */
+}
+
+/* Sidebar */
+.sidebar {
+  background: #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  flex: 0.3; /* Sidebar takes less space */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Switch to vertical stacking on mobile */
+    align-items: center;
+  }
+
+  .section, .sidebar {
+    width: 100%; /* Full width in mobile view */
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+}
+
+/* Main content */
+main {
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  color: #e0ca00;
+}
+
+.btn {
+  background-image: linear-gradient(to bottom, #05522f, #196128); /* Fixed gradient */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: rgb(104, 71, 0);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Services */
+.service-item {
+  background-color: #e0f7e0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+/* Testimonials */
+.testimonials blockquote {
+  background-color: #fff;
+  padding: 1rem;
+  border-left: 5px solid #4CAF50;
+  margin-bottom: 1rem;
+}
+
+.testimonials cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #2d6a4f;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  position: relative; /* Changed from fixed to relative */
+  width: 100%;
+}
+
+/* Styling for the images */
+.farm-images {
+  border: 5px solid #7e5f01; /* Green border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 5px; /* Space between border and image */
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover effect: Slightly enlarge image */
+.farm-images:hover {
+  transform: scale(1.1);
+}
+
+/* Floating animation */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Apply floating animation */
+.farm-images {
+  animation: floatAnimation 3s infinite ease-in-out;
+}
+
+/* 🔥 Team Section Styling */
+.team-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+/* 🌟 Styled Images */
+.team-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 15px; /* Smooth corners */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  object-fit: cover;
+  border: 5px solid #2d6a4f; /* Unified border */
+  padding: 5px; /* Unified padding */
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* 👨‍🌾 Team Section */
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 🎨 Team Member Card */
+.team-member {
+  background: linear-gradient(to bottom right, #524401, gold, rgb(1, 95, 15));
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  max-width: 300px;
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.team-member h3 {
+  color: #1d5001;
+  margin-top: 10px;
+}
+
+.team-member p {
+  color: #555;
+  font-size: 1em;
+}
+
+/* Caption for Team */
+.team-caption {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Forms */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #2d6a4f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+button:hover {
+  background-color: #6b53037c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header nav ul {
+    text-align: center;
+  }
+
+  header nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  footer {
+    position: relative;
+    bottom: initial;
+  }
+
+  .contact form, .consultancy form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .map iframe {
+    height: 300px;
+  }
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#searchInput {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#searchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #004d00;
+}
+
+/* Cart */
+#cart {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+#total-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background-image: linear-gradient(to bottom, #2d6a4f, #4b4001); /* Fixed gradient */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(to bottom, #219621, #000000); /* Fixed gradient */
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styling */
+header {
+  background-image: linear-gradient(to bottom, #0e5838, #066a3b); /* Fixed gradient */
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  width: 100%;
+}
+
+/* Product Grid */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Product Card Styling */
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Product Text */
+h2 {
+  color: #2a5f27;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Price Tag */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a7d44;
+}
+
+/* Buy Button */
+.buy-btn {
+  background: #ff9800;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.buy-btn:hover {
+  background: #e68900;
+}
+
+/* Apply styles to all images */
+img {
+  width: 100%; /* Make images responsive */
+  max-width: 400px; /* Increased size */
+  height: auto;
+  border-radius: 20px; /* Smooth rounded corners */
+  border: 5px solid #4CAF50; /* Green border */
+  padding: 8px; /* More space inside the frame */
+  background: linear-gradient(to right, #623e08, rgb(189, 161, 2)); /* White background */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow effect */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for a stylish look */
+img:hover {
+  transform: scale(1.08); /* Slightly bigger zoom effect */
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* If images are in a container, align them neatly */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* More space between images */
+  padding: 25px;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero, .product-card, .team-member, header, footer, h1, h2, h3, .products-container, .testimonials {
+  animation: fadeIn 5s ease-out;
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.farm-images {
+  animation: floatAnimation 10s infinite ease-in-out;
+}
+
+/* Hover Scaling Animation */
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.product-card:hover, .team-image:hover, .farm-images:hover {
+  animation: scaleUp 1.5s ease-in-out;
+}
+
+/* Button Hover Lift */
+@keyframes buttonLift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+button:hover, .buy-btn:hover {
+  animation: buttonLift 1.5s ease-in-out;
+}
+
+/* Slide Animation */
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.testimonials blockquote {
+  animation: slide 2.5s ease-out;
+}
+
+/* Background Color Transition */
+@keyframes backgroundColorChange {
+  0% {
+    background-color: #483b01;
+  }
+  100% {
+    background-color: #004d00;
+  }
+}
+
+header, footer {
+  animation: backgroundColorChange 5s ease-in-out;
+}
+
+/* Text Move Animation */
+@keyframes textMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+h1, h2, h3 {
+  animation: textMove 3s ease-in-out;
+}
+
+/* Page Load Fade-In Effect */
+body {
+  animation: fadeIn 5s ease-out;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Staggered Animation (For Cards, Images, etc.) */
+@keyframes staggeredFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.staggered-element {
+  opacity: 0;
+  animation: staggeredFadeIn 3s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+.products-container .product-card:nth-child(1) {
+  animation-delay: 1.5s;
+}
+
+.products-container .product-card:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.products-container .product-card:nth-child(3) {
+  animation-delay: 4.5s;
+}
+
+.products-container .product-card:nth-child(4) {
+  animation-delay: 6s;
+}
+
+/* Hover Effect for Buttons (With Color Change) */
+@keyframes buttonHover {
+  0% {
+    transform: scale(1);
+    background-color: #006400;
+  }
+  100% {
+    transform: scale(1.1);
+    background-color: #004d00;
+  }
+}
+
+button:hover, .buy-btn:hover {
+  animation: buttonHover 0.5s ease-in-out;
+}
+
+/* Input Focus Animation */
+@keyframes inputFocus {
+  0% {
+    border: 1px solid #ccc;
+  }
+  100% {
+    border: 1px solid #006400;
+  }
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  animation: inputFocus 0.5s ease-in-out;
+}
+
+/* Dropdown Animation for Navigation */
+@keyframes dropdownMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header nav ul li:hover ul {
+  display: block;
+  animation: dropdownMenu 5s ease-out;
+}
+
+/* Typing Effect */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  width: 0;
+  animation: typing 10s steps(40) 1s forwards;
+}
+
+/* Slide-in from Left */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 2.5s ease-out;
+}
+
+/* Slide-in from Right */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 2.5s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-effect {
+  animation: pulse 5s infinite ease-in-out;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce-effect {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Zoom-In Animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 3s ease-out;
+}
+
+/* Hover Slide Animation */
+@keyframes hoverSlideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.element:hover {
+  animation: hoverSlideIn 1s ease-in-out;
+}
+
+/* Shaking Animation */
+@keyframes shake {
+  0% {
+    transform: translateX(-5px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake-effect {
+  animation: shake 1s ease-in-out;
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.farm-images {
+  animation: floatAnimation 10s infinite ease-in-out;
+  animation-delay: 2s; /* Delay to ensure image load before floating animation starts */
+}
+
+/* Sliding Effect for Images */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply Sliding Animation to images */
+.farm-images, .product-card img, .team-member img {
+  animation: slideIn 5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Typing effect (for text elements like headers or paragraphs) */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+h1.typing, h2.typing, p.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid #000; /* Typing cursor */
+  animation: typing 2s steps(30) 1s forwards; /* Adjust to fit the text length */
+}
+
+/* Apply to all relevant text elements for typing effect */
+h1, h2, p {
+  animation: typing 2s steps(30) 1s forwards, textFadeIn 2s ease-out forwards;
+}
+
+/* Ensure all elements appear at once (synchronized) */
+.farm-images, .product-card img, .team-member img, h1, h2, h3, p, .product-card, .team-member, .testimonial, button {
+  animation-duration: 2s; /* Set to 2s for all */
+  animation-delay: 0s; /* Remove delays to synchronize */
+}
+
+/* Fade-In and Slide-Up Effect for Product Images */
+@keyframes imageSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Starts slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Slides up to original position */
+  }
+}
+
+/* Apply to all product images */
+.product-card img {
+  animation: imageSlideIn 1.5s ease-out forwards;
+  opacity: 0; /* Ensures opacity starts at 0 */
+}
+
+/* Slide-Down Effect for Product Images */
+@keyframes slideDownEffect {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Starts above the final position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Ends at its final position */
+  }
+}
+
+/* Apply the Slide-Down effect to Product Images */
+.product-card img {
+  animation: slideDownEffect 5s ease-out forwards;
+  opacity: 0; /* Starts invisible */
+}

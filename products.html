@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Farm Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<style>
+  /* General Styles */
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Media Queries for Mobile and Tablet Devices */
+@media (max-width: 1024px) {
+  nav {
+    padding: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align the items */
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  header nav ul li a {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+}
+
+  /* General image responsiveness */
+img {
+  width: 100%;  /* Makes the image fill the container's width */
+  height: auto; /* Keeps the aspect ratio */
+}
+
+/* Flexbox layout for product categories */
+.product-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-item {
+  flex: 1 1 300px;  /* Flexible items that adapt to the screen size */
+  max-width: 500px;  /* Maximum width for each product item */
+  margin: 10px;
+  padding: 10px;
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 768px) {
+  .product-category {
+    display: block;  /* Stack items vertically */
+  }
+
+  .product-item {
+    width: 100%; /* Full width for each product item */
+  }
+}
+
+
+
+  nav ul li {
+    margin: 8px 0; /* Adjust margin for vertical layout */
+  }
+
+  nav ul li a {
+    font-size: 18px; /* Increase font size for readability on mobile */
+    padding: 10px 20px;
+    width: 100%; /* Make the links take full width of the screen */
+    text-align: center; /* Center align text for each link */
+  }
+
+  /* Adjusting Product Item Layout on Smaller Screens */
+  .product-item {
+    display: flex;
+    flex-direction: column; /* Stack product details vertically */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .product-item img {
+    max-width: 100%; /* Make images responsive */
+    height: auto;
+  }
+
+  .product-category {
+    padding: 10px;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input {
+    width: 100%; /* Make the search input take up full width */
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .search-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+
+    /* Animation: Fade & Drop */
+    .animate-drop {
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: dropFade 10s ease-out forwards;
+    }
+
+    @keyframes dropFade {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+      
+    /* Navigation Bar */
+    nav {
+      background: #2c5d35;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 8px 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 5;
+      line-height: 0.6;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+</style>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <div class="search-bar">
+      <h1>Our Products</h1>
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <button id="searchButton">Search</button>
+    </div>
+
+    <!-- Poultry Products -->
+    <div class="product-category">
+      <h2>Poultry Products</h2>
+      <div class="product-item">
+        <img src="fresh egg.jpg" alt="Fresh Eggs" width="500px" height="400px">
+        <h3>Fresh Eggs</h3>
+        <p>₦10,000 per dozen</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="live broilers.png" alt="Live Broilers" width="500px" height="400px">
+        <h3>Live Broilers</h3>
+        <p>₦15,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="live layers.jpg" alt="Live Layers" width="500px" height="400px">
+        <h3>Live Layers</h3>
+        <p>₦12,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="dressed chicken.jpg" alt="Dressed Chicken" width="500px" height="400px">
+        <h3>Dressed Chicken</h3>
+        <p>₦20,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Ruminant Products -->
+    <div class="product-category">
+      <h2>Ruminant Products</h2>
+      <div class="product-item">
+        <img src="live goats.jpg" alt="Live Goats" width="500px" height="400px">
+        <h3>Live Goats</h3>
+        <p>₦200,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="cow.jpg" alt="Live Cows" width="500px" height="400px">
+        <h3>Live Cows</h3>
+        <p>₦500,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="cow milk.jpg" alt="Fresh Cow Milk" width="500px" height="400px">
+        <h3>Fresh Cow Milk</h3>
+        <p>₦5,000 per liter</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="goat meat.jpg" alt="Goat Meat" width="500px" height="400px">
+        <h3>Goat Meat</h3>
+        <p>₦10,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Aquaculture (Fish Farming) -->
+    <div class="product-category">
+      <h2>Aquaculture (Fish Farming)</h2>
+      <div class="product-item">
+        <img src="catfish.png" alt="Live Catfish" width="500px" height="400px">
+        <h3>Live Catfish</h3>
+        <p>₦7,000 each</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="smoked catfish.png" alt="Smoked Catfish" width="500px" height="400px">
+        <h3>Smoked Catfish</h3>
+        <p>₦15,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Agronomy (Crops & Vegetables) -->
+    <div class="product-category">
+      <h2>Agronomy (Crops & Vegetables)</h2>
+      <div class="product-item">
+        <img src="tomatoes.png" alt="Fresh Tomatoes" width="500px" height="400px">
+        <h3>Fresh Tomatoes</h3>
+        <p>₦5,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="carrot.png" alt="Organic Carrots" width="500px" height="400px">
+        <h3>Organic Carrots</h3>
+        <p>₦3,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="fresh cabbage .png" alt="Fresh Cabbage" width="500px" height="400px">
+        <h3>Fresh Cabbage</h3>
+        <p>₦2,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="onions.png" alt="Onions" width="500px" height="400px">
+        <h3>Onions</h3>
+        <p>₦1,500 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Agro-Processing (Processed Farm Products) -->
+    <div class="product-category">
+      <h2>Agro-Processing (Processed Farm Products)</h2>
+      <div class="product-item">
+        <img src="palm oil.png" alt="Palm Oil" width="500px" height="400px">
+        <h3>Palm Oil</h3>
+        <p>₦5,000 per liter</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="cassava f.png" alt="Cassava Flour" width="500px" height="400px">
+        <h3>Cassava Flour</h3>
+        <p>₦3,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="maize flou.png" alt="Maize Flour" width="500px" height="400px">
+        <h3>Maize Flour</h3>
+        <p>₦4,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Animal Feed & Supplements -->
+    <div class="product-category">
+      <h2>Animal Feed & Supplements</h2>
+      <div class="product-item">
+        <img src="poultry .png" alt="Poultry Feed" width="500px" height="400px">
+        <h3>Poultry Feed</h3>
+        <p>₦10,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="fish feed.png" alt="Fish Feed" width="500px" height="400px">
+        <h3>Fish Feed</h3>
+        <p>₦8,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="cattle.png" alt="Cattle Feed" width="500px" height="400px">
+        <h3>Cattle Feed</h3>
+        <p>₦12,000 per kg</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 KING'S FARM AND FOODS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

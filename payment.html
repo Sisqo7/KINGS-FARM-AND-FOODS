@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment | Farm Name</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert for Confirmation -->
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Animation: Fade & Drop */
+    .animate-drop {
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: dropFade 1s ease-out forwards;
+    }
+
+    @keyframes dropFade {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #2c5d35;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 8px 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Payment Section */
+    .payment-container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-container h2, .payment-container p {
+      text-align: center;
+    }
+
+    .payment-info {
+      background: #eaf4e3;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #2c5d35, yellow, #453003);
+      color: rgb(3, 66, 35);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffde0a;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2d6a4f;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .payment-container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="animate-drop">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="payment.html">Payment</a></li>
+      <li><a href="consultancy.html">Consultancy</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Payment Section -->
+  <div class="payment-container animate-drop">
+    <h2>Payment Details</h2>
+    <p>Please make a manual payment using the details below.</p>
+
+    <div class="payment-info">
+      <h3>Bank Account: First Bank</h3>
+      <p><strong>Account Name:</strong> Alade Omotayo David</p>
+      <p><strong>Account Number:</strong> 3199605670</p>
+      <p><strong>Amount:</strong> <span id="total-amount">₦0.00</span></p>
+    </div>
+
+    <!-- Formspree Form -->
+    <form id="payment-form" action="https://getform.io/f/bkkkmpjb" method="POST" enctype="multipart/form-data">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="amount">Amount Paid:</label>
+      <input type="text" id="amount" name="amount" readonly>
+
+      <label for="payment-proof">Upload Payment Proof:</label>
+      <input type="file" id="payment-proof" name="payment-proof" accept=".jpg,.jpeg,.png,.pdf" required>
+
+      <button type="submit" class="btn">Confirm Payment</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="animate-drop">
+    <p>&copy; 2025 KING'S FARM AND FOODS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Load total amount dynamically and display in Naira (₦)
+    document.addEventListener("DOMContentLoaded", function () {
+      let totalAmount = localStorage.getItem("totalPrice") || "0.00";
+      document.getElementById("total-amount").textContent = "₦" + totalAmount;
+      document.getElementById("amount").value = "₦" + totalAmount;
+    });
+
+    // SweetAlert Confirmation Before Form Submission
+    document.getElementById("payment-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Stop default form submission
+
+      Swal.fire({
+        title: "Confirm Payment",
+        text: "Are you sure you have completed the payment and uploaded the correct proof?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Confirm"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.submit(); // Proceed with Formspree submission
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Farm Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+
+    <div class="hero">
+        <h1>WELCOME TO KING'S FARM AND FOODS</h1>
+        <h1 id="typing-effect"></h1>
+<script>document.addEventListener("DOMContentLoaded", function () {
+  const text = "Our Products"; // Change this text to match your page
+  const speed = 100; // Typing speed in milliseconds (adjust as needed)
+  let i = 0;
+  
+  function typeEffect() {
+      if (i < text.length) {
+          document.getElementById("typing-effect").textContent += text.charAt(i);
+          i++;
+          setTimeout(typeEffect, speed);
+      }
+  }
+
+  typeEffect();
+});
+</script>
+        <p style="color: blanchedalmond;"><i>Providing the best quality farm products and services, including Poultry, Ruminants, Aquaculture, Agronomy, and more.</i></p>
+        <a href="products.html" class="btn">Explore Our Products</a>
+    </div>
+    
+   
+
+    <section class="services">
+      <h2>Our Services</h2>
+      <div class="service-item">
+        <h3>Poultry Production</h3>
+        <p>Fresh eggs, live broilers, and more.</p>
+      </div>
+      <div class="service-item">
+        <h3>Ruminant Production</h3>
+        <p>Live goats, cows, fresh milk, and meat.</p>
+      </div>
+      <div class="service-item">
+        <h3>Aquaculture</h3>
+        <p>Live catfish, smoked fish, and more.</p>
+      </div>
+      <div class="service-item">
+        <h3>Agro-Processing</h3>
+        <p>Processed farm products like palm oil and flour.</p>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <blockquote>
+        "Best farm products I've ever bought! Fresh and healthy."
+        <cite>- Raji Fasilat</cite>
+      </blockquote>
+      <blockquote>
+        "Their customer service and delivery are top-notch."
+        <cite>- Ayodeji Mariam</cite>
+      </blockquote>
+      <blockquote>
+        "The farm products are always fresh and delicious."
+        <cite>- Abiodun Ifeoluwa</cite>
+      </blockquote>
+      <blockquote>
+        "I love their farm activities. It's always fun and educative."
+        <cite>- Oloyede Olamilekan</cite>
+      </blockquote>
+      <blockquote>
+        "King's Farm is the best place to get quality farm products."
+        <cite>Sholuade AbdulRazaq</cite>
+      </blockquote>
+    </section>
+
+    <section class="gallery">
+      <h2>Farm Activities</h2>
+      <img src="farm activities 1.jpg" alt="Farm Activity 1" width="500px" height="400px" class="farm-images">
+      <img src="fa2.jpg" alt="Farm Activity 2" width="500px" height="400px" class="farm-images">
+      <img src="fa3.jpg" alt="Farm Activity 3" width="500px" height="400px" class="farm-images">
+      <img src="fa4.jpg" alt="Farm Activity 4" width="500px" height="400px" class="farm-images">
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 King's Farm. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>
