@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Farm Name</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px 0;
+      color: white;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #e1e1e1;
+    }
+
+    main {
+      padding: 40px 20px;
+      background-color: white;
+    }
+
+    .contact h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #2a9d8f;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact form label {
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      display: block;
+      color: #555;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 1em;
+    }
+
+    .contact form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2a9d8f;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact form button:hover {
+      background-color: #21867a;
+    }
+
+    .social-media {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      color: rgb(113, 0, 0);
+      transition: 0.3s;
+      font-size: 1.1em;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
+    }
+
+    .social-links a[href*="WhatsApp"] {
+      background-color: #25D366;
+    }
+
+    .social-links a[href*="Call"] {
+      background-color: #007bff;
+    }
+
+    .social-links a[href*="Facebook"] {
+      background-color: #1877F2;
+    }
+
+    .social-links a[href*="TikTok"] {
+      background-color: #000000;
+    }
+
+    .map {
+      margin-top: 40px;
+    }
+
+    footer {
+      background-color: #00630a;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+      }
+
+      header nav ul li {
+        margin: 5px 0;
+      }
+
+      .contact form {
+        padding: 15px;
+      }
+
+      .contact form button {
+        font-size: 1em;
+      }
+
+      .social-links a {
+        font-size: 1em;
+      }
+    }
+    .social-links a[href*="mailto"] {
+    background-color: #ffffff; /* Gmail Red */
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="consultancy.html">Consultancy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <section class="contact">
+      <h1>Contact Us</h1>
+      <form action="https://getform.io/f/brookxya" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+        
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required />
+        
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit" class="btn">Submit</button>
+      </form>
+
+      <section class="social-media">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+          <a href="https://wa.me/+2349120800600" target="_blank">WhatsApp</a>
+          <a href="tel:+2348109481416">Call Us</a>
+          <a href="https://facebook.com/kingsfarmsfoods" target="_blank">Facebook</a>
+          <a href="https://tiktok.com/@david_reign1" target="_blank">TikTok</a>
+          <a href="mailto:kingsfarms18@gmail.com">
+            <i class="fas fa-envelope"></i> Email Us
+        </a>
+        
+        </div>
+      </section>
+
+      <div class="map">
+        <h2>Find Us</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31702.905877386725!2d3.2515282!3d6.7594854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103be9b3207b7d41%3A0x6e3b15e40727b719!2sItoki%2C%20Ogun%20State!5e0!3m2!1sen!2sng!4v1706900000000"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 KING'S FARM AND FOODS. All rights reserved.</p>
+  </footer>
+</body>
+</html>

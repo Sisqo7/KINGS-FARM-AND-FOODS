@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      <style>
+        #cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between cart items */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.cart-item img {
+    width: 80px; /* Adjust size as needed */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background-color: #006400;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Order Form Styles */
+form#orderForm {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form#orderForm h2 {
+      text-align: center;
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      color: #555;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #28a745;
+      outline: none;
+      box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+    }
+
+    /* Submit Button */
+    button#submitButton {
+      width: 100%;
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: background 0.3s ease-in-out;
+    }
+
+    button#submitButton:hover {
+      background: #218838;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      form#orderForm {
+        padding: 15px;
+      }
+
+      input, textarea {
+        padding: 10px;
+      }
+
+      button#submitButton {
+        padding: 10px;
+      }
+    }
+  
+      </style>
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <h3>Total Price: #<span id="total-price">0.00</span></h3>
+            <a href="payment.html" class="btn">Proceed to Payment</a>
+        </section>
+    </main>
+    <form id="orderForm" action="order form" method="POST">
+        <h2>Order Details</h2>
+        
+        <!-- Hidden fields to send cart data -->
+        <input type="hidden" id="cartItemsInput" name="cart_items">
+        <input type="hidden" id="totalPriceInput" name="total_price">
+      
+        <!-- User Details -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="address" required></textarea>
+      
+        <!-- Submit button -->
+        <button type="submit" id="submitButton">Submit Order</button>
+      </form>
+    <footer>
+        <p>&copy; 2021 KING'S FARM AND FOODS. All rights reserved.</p>
+    </footer>      
+    <script src="cart.js"></script>    
+
+    <script>
+        function updateCart() {
+            let cartContainer = document.getElementById("cart-items");
+            let totalPriceElement = document.getElementById("total-price");
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+
+            cartContainer.innerHTML = ""; // Clear previous items
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cartItems.forEach((item, index) => {
+                    let price = parseFloat(item.price.toString().replace(/[^0-9.]/g, "")); // Ensure price is a number
+                    let quantity = item.quantity ? parseInt(item.quantity) : 1; // Ensure quantity is valid
+                    let itemTotal = price * quantity; // Calculate total for each item
+                    total += itemTotal; // Add to total
+
+                    let itemElement = document.createElement("div");
+                    itemElement.classList.add("cart-item");
+                    itemElement.innerHTML = `
+                        <p><strong>${item.name}</strong> - $${price.toFixed(2)} x ${quantity} = <strong>$${itemTotal.toFixed(2)}</strong></p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartContainer.appendChild(itemElement);
+                });
+            }
+
+            totalPriceElement.textContent = total.toFixed(2); // Update total price
+            localStorage.setItem("totalPrice", total.toFixed(2)); // Store total price for payment page
+        }
+
+        function removeFromCart(index) {
+            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            updateCart(); // Refresh the cart
+        }
+
+        // Load cart when page loads
+        document.addEventListener("DOMContentLoaded", updateCart);
+
+        function updateCart() {
+    let cartContainer = document.getElementById("cart-items");
+    let totalPriceElement = document.getElementById("total-price");
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
+
+    cartContainer.innerHTML = ""; // Clear previous items
+
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+        cartItems.forEach((item, index) => {
+            let price = parseFloat(item.price.toString().replace(/[^0-9]/g, "")); // Extract numeric price
+            let quantity = item.quantity ? parseInt(item.quantity) : 1; // Ensure quantity is valid
+            let itemTotal = price * quantity; // Calculate total for each item
+            total += itemTotal; // Add to total
+
+            let itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <p><strong>${item.name}</strong> - ₦${price.toLocaleString()} x ${quantity} = <strong>₦${itemTotal.toLocaleString()}</strong></p>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            `;
+            cartContainer.appendChild(itemElement);
+        });
+    }
+
+    totalPriceElement.textContent = "₦" + total.toLocaleString(); // Format total price in Naira
+    localStorage.setItem("totalPrice", total.toFixed(2)); // Store total price
+}
+
+    </script>
+
+</body>
+</html>
